@@ -1,0 +1,114 @@
+
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pendaftaran Kursus Bahasa Inggris</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f4f8;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .form-container {
+            background-color: #ffffff;
+            padding: 20px 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            width: 100%;
+            max-width: 400px;
+        }
+
+        h2 {
+            text-align: center;
+            color: #333333;
+        }
+
+        label {
+            display: block;
+            margin-top: 15px;
+            color: #555555;
+        }
+
+        input {
+            width: 100%;
+            padding: 8px 10px;
+            margin-top: 5px;
+            border: 1px solid #cccccc;
+            border-radius: 5px;
+        }
+
+        button {
+            width: 100%;
+            padding: 10px;
+            background-color: #28a745;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            margin-top: 20px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        button:hover {
+            background-color: #218838;
+        }
+    </style>
+</head>
+<body>
+
+<div class="form-container">
+    <h2>Form Pendaftaran Kursus</h2>
+    <form onsubmit="sendMessage(); return false;">
+        <label>Nama Lengkap:</label>
+        <input type="text" id="nama" required>
+
+        <label>Jenis Kelamin:</label>
+        <input type="text" id="jk" required>
+
+        <label>Tanggal Lahir:</label>
+        <input type="text" id="ttl" required>
+
+        <label>Umur:</label>
+        <input type="text" id="umur" required>
+
+        <label>Alamat:</label>
+        <input type="text" id="alamat" required>
+
+        <label>No. WA Aktif:</label>
+        <input type="text" id="nowa" required>
+
+        <button type="submit">Kirim Pendaftaran</button>
+    </form>
+</div>
+
+<script>
+    function sendMessage() {
+        var nama = document.getElementById('nama').value;
+        var jk = document.getElementById('jk').value;
+        var ttl = document.getElementById('ttl').value;
+        var umur = document.getElementById('umur').value;
+        var alamat = document.getElementById('alamat').value;
+        var nowa = document.getElementById('nowa').value;
+
+        var url = "https://api.whatsapp.com/send?phone=6289512320402&text=" +
+            "Hallo%20min%0ASaya%20mau%20ikut%20kursus%20bahasa%20Inggris%20%0A" +
+            "Nama%3A%20" + encodeURIComponent(nama) + "%0A" +
+            "Jenis%20Kelamin%3A%20" + encodeURIComponent(jk) + "%0A" +
+            "T/T/L%3A%20" + encodeURIComponent(ttl) + "%0A" +
+            "Umur%3A%20" + encodeURIComponent(umur) + "%0A" +
+            "Alamat%3A%20" + encodeURIComponent(alamat) + "%0A" +
+            "No%20WA%3A%20" + encodeURIComponent(nowa);
+
+        window.open(url);
+    }
+</script>
+
+</body>
+</html>
